@@ -29,14 +29,14 @@ md5sums=('SKIP'
          '132a540d3f2a5e0fdc37ab1b3720d481')
 
 pkgver() {
-	cd "${srcdir}/${_pkgname}"
+  cd "${srcdir}/${_pkgname}"
 
   # Git, unannotated tags available
-	printf "%s" "$(git describe --long --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+  printf "%s" "$(git describe --long --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
 }
 
 build() {
-	cd "${srcdir}/${_pkgname}"
+  cd "${srcdir}/${_pkgname}"
 
   cd MassEffectModder
 
@@ -47,15 +47,15 @@ build() {
 
 # TODO: check the check()
 #check() {
-#	cd "${srcdir}/${_pkgname}"
+# cd "${srcdir}/${_pkgname}"
   
 #  cd MassEffectModder
 
-#	make -k check
+# make -k check
 #}
 
 package() {
-	cd "${srcdir}/${_pkgname}"
+  cd "${srcdir}/${_pkgname}"
   
   install -d "${pkgdir}/usr/share/applications"
   install -m644 "${srcdir}/mass-effect-modder.desktop" \
