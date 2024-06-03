@@ -9,7 +9,7 @@ url="https://github.com/MassEffectModder/MassEffectModder"
 license=('GPL')
 groups=()
 depends=(
-  'qt5-base'
+  'qt6-base'
 )
 makedepends=(
   'git'
@@ -37,6 +37,8 @@ pkgver() {
 
 build() {
   cd "${srcdir}/${_pkgname}"
+
+	PATH+="${PATH:+:}/usr/lib/qt6/bin"
 
   cd MassEffectModder
 
